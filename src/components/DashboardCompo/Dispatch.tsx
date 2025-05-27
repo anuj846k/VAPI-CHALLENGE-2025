@@ -49,7 +49,7 @@ const Dispatch = ({ isMinimized }: { isMinimized: boolean }) => {
       }),
       {
         loading: "Requesting additional units...",
-        success: (message) => message,
+        success: (message) => String(message),
         error: (err) => `Error: ${err.toString()}`,
       }
     );
