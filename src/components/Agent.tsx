@@ -12,7 +12,7 @@ enum CallStatus {
 
 const Agent = ({ userName }) => {
   const isSpeaking = true;
-  const [callStatus, setCallStatus] = useState<CallStatus>(CallStatus.INACTIVE);
+  const [callStatus] = useState<CallStatus>(CallStatus.INACTIVE);
 
   return (
     <>

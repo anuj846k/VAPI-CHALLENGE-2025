@@ -80,7 +80,7 @@ export async function analyzeEmergency(callData: {
       console.error("Failed text was:", text);
       throw new Error("Failed to parse Gemini response");
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error("Error in Gemini analysis:", error);
 
     if (error.message?.includes("429") || error.message?.includes("quota")) {

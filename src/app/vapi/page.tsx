@@ -48,7 +48,7 @@ export default function CallsList() {
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6">VAPI Call Transcripts</h1>
       <div className="space-y-8">
-        {calls.map((call, idx) => (
+        {calls.map((call) => (
           <div key={call} className="p-4 border rounded shadow">
             <div className="text-black">Call Id: {call.id}</div>
             {/* <div className="text-black">{call.transcript}</div> */}

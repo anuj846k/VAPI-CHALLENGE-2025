@@ -47,14 +47,14 @@ export function Globe({
   const pointerInteractionMovement = useRef(0)
   const [r, setR] = useState(0)
 
-  const updatePointerInteraction = (value: any) => {
+  const updatePointerInteraction = (value: string | null) => {
     pointerInteracting.current = value
     if (canvasRef.current) {
       canvasRef.current.style.cursor = value ? "grabbing" : "grab"
     }
   }
 
-  const updateMovement = (clientX: any) => {
+  const updateMovement = (clientX: number) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current
       pointerInteractionMovement.current = delta
@@ -63,7 +63,7 @@ export function Globe({
   }
 
   const onRender = useCallback(
-    (state: Record<string, any>) => {
+    (state: Record<string, number>) => {
       if (!pointerInteracting.current) phi += 0.005
       state.phi = phi + r
       state.width = width * 2
@@ -107,7 +107,7 @@ export function Globe({
         ref={canvasRef}
         onPointerDown={(e) =>
           updatePointerInteraction(
-            e.clientX - pointerInteractionMovement.current,
+            (e.clientX - pointerInteractionMovement.current).toString(),
           )
         }
         onPointerUp={() => updatePointerInteraction(null)}

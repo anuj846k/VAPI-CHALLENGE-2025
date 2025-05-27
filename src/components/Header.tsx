@@ -1,25 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
-import { HiOutlineXMark, HiBars3 } from "react-icons/hi2";
-import { FaFingerprint } from "react-icons/fa";
+import React from "react";
 
 import Container from "./Container";
 import { siteDetails } from "@/data/siteDetails";
 
 const Header: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
       <Container className="!px-0">
         <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +28,6 @@ const Header: React.FC = () => {
             </span>
           </Link>
 
-          {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6">
             <Link
               href="/dashboard"

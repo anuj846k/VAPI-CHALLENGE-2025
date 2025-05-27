@@ -111,7 +111,7 @@ const Dashboard = () => {
 
           const analyses = await Promise.all(analysisPromises);
           const validAnalyses = analyses.filter(
-            ([_, analysis]) => analysis !== null
+            ([analysis]) => analysis !== null
           );
 
           setAnalyzedCalls((prev) => ({
