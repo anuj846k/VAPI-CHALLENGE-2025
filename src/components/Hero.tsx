@@ -10,26 +10,27 @@ const GLOBE_CONFIG = {
   width: 800,
   height: 800,
   devicePixelRatio: 2,
+  onRender: () => null,
   phi: 0,
   theta: 0.3,
   dark: 0,
   diffuse: 0.4,
   mapSamples: 16000,
   mapBrightness: 1.2,
-  baseColor: [1, 1, 1],
-  markerColor: [255 / 255, 59 / 255, 48 / 255],
-  glowColor: [1, 1, 1],
+  baseColor: [1, 1, 1] as [number, number, number],
+  markerColor: [1, 59 / 255, 48 / 255] as [number, number, number],
+  glowColor: [1, 1, 1] as [number, number, number],
   markers: [
-    { location: [37.7749, -122.4194], size: 0.08 },
-    { location: [34.0522, -118.2437], size: 0.08 },
-    { location: [29.7604, -95.3698], size: 0.1 },
-    { location: [25.7617, -80.1918], size: 0.08 },
-    { location: [35.6762, 139.6503], size: 0.09 },
-    { location: [19.4326, -99.1332], size: 0.08 },
-    { location: [-33.8688, 151.2093], size: 0.07 },
-    { location: [28.6139, 77.209], size: 0.1 },
-    { location: [6.5244, 3.3792], size: 0.08 },
-    { location: [-22.9068, -43.1729], size: 0.09 },
+    { location: [37.7749, -122.4194] as [number, number], size: 0.08 },
+    { location: [34.0522, -118.2437] as [number, number], size: 0.08 },
+    { location: [29.7604, -95.3698] as [number, number], size: 0.1 },
+    { location: [25.7617, -80.1918] as [number, number], size: 0.08 },
+    { location: [35.6762, 139.6503] as [number, number], size: 0.09 },
+    { location: [19.4326, -99.1332] as [number, number], size: 0.08 },
+    { location: [-33.8688, 151.2093] as [number, number], size: 0.07 },
+    { location: [28.6139, 77.209] as [number, number], size: 0.1 },
+    { location: [6.5244, 3.3792] as [number, number], size: 0.08 },
+    { location: [-22.9068, -43.1729] as [number, number], size: 0.09 },
   ],
 };
 
@@ -67,12 +68,12 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-center z-10 mb-12 md:mb-16"
       >
-      <div className="mt-6 mb-10 p-2 bg-white/30  drop-shadow-2xl backdrop-blur-xl border border-white/30 shadow-lg max-w-[270px] mx-auto flex items-center justify-center space-x-2 rounded-full">
-  <span className="inline-block h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
-  <span className="text-sm font-medium text-gray-700">
-    Systems operational worldwide
-  </span>
-</div>
+        <div className="mt-6 mb-10 p-2 bg-white/30  drop-shadow-2xl backdrop-blur-xl border border-white/30 shadow-lg max-w-[270px] mx-auto flex items-center justify-center space-x-2 rounded-full">
+          <span className="inline-block h-3 w-3 rounded-full bg-green-500 animate-pulse"></span>
+          <span className="text-sm font-medium text-gray-700">
+            Systems operational worldwide
+          </span>
+        </div>
         <h1 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-4xl mx-auto">
           Sahara AI Disaster{" "}
           <span className="  bg-gradient-to-r from-red-400 shadow-2xl to-red-500 text-white px-4 py-2 rounded-md inline-block transform ">
@@ -97,7 +98,10 @@ const Hero: React.FC = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className="relative flex size-full w-full max-w-5xl mx-auto items-center justify-center    "
       >
-        <Globe className="scale-125 transform-gpu" config={GLOBE_CONFIG} />
+        <Globe
+          className="scale-125 transform-gpu"
+          config={GLOBE_CONFIG }
+        />
 
         <div className="pointer-events-none absolute inset-0 h-full rounded-xl overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent"></div>
